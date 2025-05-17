@@ -1,0 +1,10 @@
+{
+  "name": "kyb-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/kyb-e2e/src",
+  "tags": [],
+  "implicitDependencies": ["kyb"],
+  "// targets": "to see all targets run: nx show project kyb-e2e --web",
+  "targets": {}
+}

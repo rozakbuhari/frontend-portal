@@ -8,6 +8,18 @@
     },
     {
       "path": "./apps/root"
+    },
+    {
+      "path": "./apps/kyb-e2e"
+    },
+    {
+      "path": "./apps/kyb"
+    },
+    {
+      "path": "./apps/kyc-e2e"
+    },
+    {
+      "path": "./apps/kyc"
     }
   ]
 }

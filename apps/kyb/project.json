@@ -1,0 +1,85 @@
+{
+  "name": "kyb",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/kyb/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "apps/kyb/dist",
+        "index": "apps/kyb/src/index.html",
+        "baseHref": "/",
+        "main": "apps/kyb/src/main.ts",
+        "tsConfig": "apps/kyb/tsconfig.app.json",
+        "assets": ["apps/kyb/src/favicon.ico", "apps/kyb/src/assets"],
+        "styles": ["apps/kyb/src/styles.css"],
+        "scripts": [],
+        "webpackConfig": "apps/kyb/webpack.config.ts",
+        "postcssConfig": "apps/kyb/postcss.config.js"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/kyb/src/environments/environment.ts",
+              "with": "apps/kyb/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "webpackConfig": "apps/kyb/webpack.config.prod.ts"
+        }
+      },
+      "dependsOn": ["^build", "typecheck"]
+    },
+    "serve": {
+      "executor": "@nx/react:module-federation-dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "kyb:build",
+        "hmr": true,
+        "port": 4201
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "kyb:build:development"
+        },
+        "production": {
+          "buildTarget": "kyb:build:production",
+          "hmr": false
+        }
+      },
+      "dependsOn": ["typecheck"]
+    },
+    "serve-static": {
+      "executor": "@nx/react:module-federation-static-server",
+      "defaultConfiguration": "production",
+      "options": {
+        "serveTarget": "kyb:serve"
+      },
+      "configurations": {
+        "development": {
+          "serveTarget": "kyb:serve:development"
+        },
+        "production": {
+          "serveTarget": "kyb:serve:production"
+        }
+      }
+    }
+  }
+}

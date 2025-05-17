@@ -16,6 +16,11 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "es2022",
-    "customConditions": ["development"]
+    "customConditions": ["development"],
+    "baseUrl": ".",
+    "paths": {
+      "kyb/Module": ["apps/kyb/src/remote-entry.ts"],
+      "kyc/Module": ["apps/kyc/src/remote-entry.ts"]
+    }
   }
 }
