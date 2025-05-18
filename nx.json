@@ -67,7 +67,12 @@
       "plugin": "@nx/jest/plugin",
       "options": {
         "targetName": "test"
-      }
+      },
+      "exclude": [
+        "apps/backend-e2e/**/*",
+        "apps/kyc-backend-e2e/**/*",
+        "apps/kyb-backend-e2e/**/*"
+      ]
     }
   ],
   "targetDefaults": {

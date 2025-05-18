@@ -1,0 +1,26 @@
+{
+  "name": "@frontend-portal/kyc-backend-e2e",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "implicitDependencies": [
+      "@frontend-portal/kyc-backend"
+    ],
+    "targets": {
+      "e2e": {
+        "executor": "@nx/jest:jest",
+        "outputs": [
+          "{projectRoot}/test-output/jest/coverage"
+        ],
+        "options": {
+          "jestConfig": "apps/kyc-backend-e2e/jest.config.ts",
+          "passWithNoTests": true
+        },
+        "dependsOn": [
+          "@frontend-portal/kyc-backend:build",
+          "@frontend-portal/kyc-backend:serve"
+        ]
+      }
+    }
+  }
+}

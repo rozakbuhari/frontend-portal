@@ -20,6 +20,24 @@
     },
     {
       "path": "./apps/kyc"
+    },
+    {
+      "path": "./apps/backend-e2e"
+    },
+    {
+      "path": "./apps/backend"
+    },
+    {
+      "path": "./apps/kyc-backend-e2e"
+    },
+    {
+      "path": "./apps/kyc-backend"
+    },
+    {
+      "path": "./apps/kyb-backend-e2e"
+    },
+    {
+      "path": "./apps/kyb-backend"
     }
   ]
 }
